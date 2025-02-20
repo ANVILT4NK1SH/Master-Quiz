@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/generic.css">
   <link rel="stylesheet" href="/css/specific.css">
+  sc
   <title>QM - Create Quiz</title>
 </head>
 <body>
@@ -21,6 +22,36 @@
       <a href="profile.html">Profile</a><br>
       <a href="myQuizzes.html">My Quizzes</a>
     </div>
+  </div>
+
+  <div>
+    
+    <form action="submit">
+      <select name="difficulty" id="difficulty">
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+
+      <select name="" id="">
+        <option value="">Choose Subject</option>
+        <option value=""></option>
+      </select>
+          <!-- use data to project current subjects -->
+ 
+      <p style="color: blue; text-decoration: underline; font-size: .5em; cursor: pointer;">Want to create a new subject?<p>
+        <!-- if new subject clicked then show input and hide options -->
+      <input type="text" placeholder="Subject" id="subject" hidden>
+
+
+
+      <input type="text" placeholder="question" id="question">
+      <input type="text" placeholder="correct answer" id="correct-answer">
+      <input type="text" placeholder="choice 1" id="choice1">
+      <input type="text" placeholder="choice 2" id="choice2">
+      <input type="text" placeholder="choice 3" id="choice3">
+      <button id="submitBtn">Submit</button>
+    </form>
   </div>
   
 </body>

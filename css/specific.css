@@ -6,7 +6,7 @@
   left: 0;
   align-items: center;
   justify-content: space-between;
-  position: fixed;
+  position: sticky;
   background-color: #E66912;
   width: 100%;
 }

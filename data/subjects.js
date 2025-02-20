@@ -9,6 +9,7 @@ import { Mathematics } from "../data/mathematicsData.js";
 import { Physics } from "../data/physicsData.js";
 import { Science } from "../data/scienceData.js";
 
+
 export const subjects = {
   "Biology" : Biology,
   "Chemistry" : Chemistry,
@@ -20,4 +21,6 @@ export const subjects = {
   "Mathematics": Mathematics,
   "Physics": Physics,
   "Science": Science, 
+  // insert new subject {...subjects, subjectName: new subject value}
+// use input data to dynamically import file && create new folders for subject??
 }

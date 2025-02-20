@@ -3,7 +3,6 @@ import {
 	mediumBtnHandler,
 	hardBtnHandler,
 	randomBtnHandler,
-	//quizSubmitBtnHandler,
 } from "./btnHandlers.js";
 
 
