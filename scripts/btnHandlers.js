@@ -1,19 +1,25 @@
 import { subjects } from "../data/subjects.js";
+import { QuizManager } from "./quizManager.js";
 let numberCorrect = 0;
 const mainContainer = document.querySelector("#mainContainer");
 const questionContainer = document.querySelector(".questionContainer");
 const listContainer = document.querySelector(".listContainer");
 
+const quizManager = new QuizManager("quizData");
+
+const allSubjects = { ...subjects, ...quizManager.getAll() };
+
 export const easyBtnHandler = (e) => {
 	let subjectId = e.target
 		.closest(".js-trivia-cards")
 		?.querySelector(".trivia-subject").dataset.subjectId;
-
+	numberCorrect = 0;
 	let currentIndex = 0;
 
-	if (subjectId && subjects[subjectId]) {
-		let subjectObject = subjects[subjectId];
-		let questions = subjectObject.easy;
+	if (subjectId && allSubjects[subjectId]) {
+		
+		let subjectObject = allSubjects[subjectId];
+		let questions = subjectObject.easy || [];
 		let listItems = "";
 
 		console.log(questions);
@@ -31,12 +37,12 @@ export const mediumBtnHandler = (e) => {
 	let subjectId = e.target
 		.closest(".js-trivia-cards")
 		?.querySelector(".trivia-subject").dataset.subjectId;
-
+	numberCorrect = 0;
 	let currentIndex = 0;
 
-	if (subjectId && subjects[subjectId]) {
-		let subjectObject = subjects[subjectId];
-		let questions = subjectObject.medium;
+	if (subjectId && allSubjects[subjectId]) {
+		let subjectObject = allSubjects[subjectId];
+		let questions = subjectObject.medium || [];
 		let listItems = "";
 
 		console.log(questions);
@@ -55,12 +61,12 @@ export const hardBtnHandler = (e) => {
 	let subjectId = e.target
 		.closest(".js-trivia-cards")
 		?.querySelector(".trivia-subject").dataset.subjectId;
-
+	numberCorrect = 0;
 	let currentIndex = 0;
 
-	if (subjectId && subjects[subjectId]) {
-		let subjectObject = subjects[subjectId];
-		let questions = subjectObject.hard;
+	if (subjectId && allSubjects[subjectId]) {
+		let subjectObject = allSubjects[subjectId];
+		let questions = subjectObject.hard || [];
 		let listItems = "";
 
 		console.log(questions);
@@ -75,14 +81,19 @@ export const hardBtnHandler = (e) => {
 	}
 };
 
-export const randomBtnHandler = () => {};
-
-
 function displayQuestion(index, questions, listItems) {
 	const totalQuestions = questions.length;
 	const question = questions[index];
 
-	if (index < 0 || index > totalQuestions) return;
+	if (index < 0 || index >= totalQuestions) {
+		questionContainer.innerHTML =
+			"<p>No questions available for this difficulty.</p>";
+
+		setTimeout(() => {
+			mainContainer.style.display = "none";
+		}, 3000);
+		return;
+	}
 
 	questionContainer.innerHTML = ` 
 			<div class="question">
@@ -90,22 +101,28 @@ function displayQuestion(index, questions, listItems) {
 						<h3>${question.question}</h3>
 		
 						<form class="answerForm">
-						<div class="radio-container">
-						<div class="left-radio-btns">
-							<input type="radio" id="option1" name="choice" value="${question.choices[0]}" />
-							<label for="option1">${question.choices[0]}</label>
-		
-							<input type="radio" id="option2" name="choice" value="${question.choices[1]}" />
-							<label for="option2">${question.choices[1]}</label>
-						</div>
-						<div class="right-radio-btns">	
-							<input type="radio" id="option3" name="choice" value="${question.choices[2]}" />
-							<label for="option3">${question.choices[2]}</label>
-		
-							<input type="radio" id="option4" name="choice" value="${question.choices[3]}" />
-							<label for="option4">${question.choices[3]}</label>
-						</div>
-						</div>
+							<div class="radio-container">
+								<div class="radio-option">
+									<input type="radio" id="option1" name="choice" value="${question.choices[0]}" />
+									<label for="option1">${question.choices[0]}</label>
+								</div>
+
+								<div class="radio-option">
+									<input type="radio" id="option2" name="choice" value="${question.choices[1]}" />
+									<label for="option2">${question.choices[1]}</label>
+								</div>
+
+								<div class="radio-option">
+									<input type="radio" id="option3" name="choice" value="${question.choices[2]}" />
+									<label for="option3">${question.choices[2]}</label>
+								</div>
+
+								<div class="radio-option">
+									<input type="radio" id="option4" name="choice" value="${question.choices[3]}" />
+									<label for="option4">${question.choices[3]}</label>
+								</div>
+
+							</div>
 							<button type="button" class="answer-submit-btn">Submit</button>
 						</form>
 						<p class="feedback"></p>
@@ -113,12 +130,14 @@ function displayQuestion(index, questions, listItems) {
 
 	const feedback = document.querySelector(".feedback");
 	let submitBtn = document.querySelector(".answer-submit-btn");
-	const closeBtn = document.querySelector(".close")
+	const closeBtn = document.querySelector(".close");
 	const listItem = document.querySelector(`#li${index + 1}`);
 
 	listItem.setAttribute("style", "color: white");
 
-	closeBtn.addEventListener("click",() => {mainContainer.style.display = "none"})
+	closeBtn.addEventListener("click", () => {
+		mainContainer.style.display = "none";
+	});
 
 	submitBtn.addEventListener("click", (b) => {
 		b.preventDefault();

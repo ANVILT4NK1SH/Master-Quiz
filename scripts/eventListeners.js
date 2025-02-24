@@ -2,7 +2,6 @@ import {
 	easyBtnHandler,
 	mediumBtnHandler,
 	hardBtnHandler,
-	randomBtnHandler,
 } from "./btnHandlers.js";
 
 
@@ -17,8 +16,5 @@ export function eventListeners() {
 	hardBtn.forEach((b) => {
 		b.addEventListener("click", hardBtnHandler);
 	});
-	
-	let randomBtn = document.querySelector("#random-quiz-btn");	
-	randomBtn.addEventListener("click", randomBtnHandler);
 
 };

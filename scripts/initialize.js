@@ -1,20 +1,14 @@
-import { showSubjects } from "./triviaCards.js";
+import { showSubjects, showMyQuizzes } from "./triviaCards.js";
 import { quizzes } from "../data/quizData.js";
 import { eventListeners } from "./eventListeners.js";
-
-const newQuizes = localStorage.getItem('subjectValue')
-// get into your data on initialization 
-// temp loading div while logic before showSubjects fires 
-
-
-/*
-    loading screen loading icon 
-*/
+import { QuizManager } from "./quizManager.js";
 
 showSubjects(quizzes);
+const quizManager = new QuizManager("quizData");
+showMyQuizzes(quizManager.toSubjectArray());
 
 eventListeners();
 
-// display newQuizzes textContent
+
 
 

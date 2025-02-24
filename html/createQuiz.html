@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/generic.css">
-  <link rel="stylesheet" href="/css/specific.css">
-  sc
+  <link rel="stylesheet" href="../css/generic.css">
+  <link rel="stylesheet" href="../css/specific.css">
+  <link rel="stylesheet" href="../css/createQuiz.css">
+  <script type="module" src="../scripts/createQuiz.js" defer></script>
   <title>QM - Create Quiz</title>
 </head>
 <body>
@@ -19,40 +20,35 @@
     </div>
     
     <div id="right-header">
-      <a href="profile.html">Profile</a><br>
-      <a href="myQuizzes.html">My Quizzes</a>
+      <a href="/html/profile.html">Profile</a><br>
+      <a href="#">Create/Edit Quiz</a>
     </div>
   </div>
 
-  <div>
-    
-    <form action="submit">
-      <select name="difficulty" id="difficulty">
+  <body>
+  <div class="quiz-form">
+    <h1>Create a Quiz</h1>
+    <form>
+      <select class="subject"></select>
+      <input id="subject" type="text" placeholder="New Subject" hidden>
+      <button id="newSubjectBtn" type="button">New Subject</button>
+      <select id="difficulty">
         <option value="easy">Easy</option>
         <option value="medium">Medium</option>
         <option value="hard">Hard</option>
       </select>
-
-      <select name="" id="">
-        <option value="">Choose Subject</option>
-        <option value=""></option>
-      </select>
-          <!-- use data to project current subjects -->
- 
-      <p style="color: blue; text-decoration: underline; font-size: .5em; cursor: pointer;">Want to create a new subject?<p>
-        <!-- if new subject clicked then show input and hide options -->
-      <input type="text" placeholder="Subject" id="subject" hidden>
-
-
-
-      <input type="text" placeholder="question" id="question">
-      <input type="text" placeholder="correct answer" id="correct-answer">
-      <input type="text" placeholder="choice 1" id="choice1">
-      <input type="text" placeholder="choice 2" id="choice2">
-      <input type="text" placeholder="choice 3" id="choice3">
-      <button id="submitBtn">Submit</button>
+      <input id="question" type="text" placeholder="Question">
+      <input id="correct-answer" type="text" placeholder="Correct Answer">
+      <input id="choice1" type="text" placeholder="Choice 1">
+      <input id="choice2" type="text" placeholder="Choice 2">
+      <input id="choice3" type="text" placeholder="Choice 3">
+      <button id="submitBtn" type="submit">Add Quiz</button>
     </form>
   </div>
-  
+  <div class="quiz-list">
+    <h2>My Created Quizzes</h2>
+    <div id="quizList"></div>
+  </div>
+  <script type="module" src="../scripts/createQuiz.js"></script>
 </body>
 </html>

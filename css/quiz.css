@@ -48,57 +48,47 @@
   justify-items: center;
 }
 
-.radio-container{
-  min-width: 100%;
-  display: flex;
-  justify-content: center;
-
+.radio-container {
+  width: 100%;
+  display: grid;
+  justify-items: center; 
+  align-items: center; 
+  text-align: center; 
+  grid-template-columns: 50% 50%; 
+  gap: 10px; 
 }
 
-label{
-  border-radius: 5px;
-  margin: 5px;
-  border: 3px solid black;
-  background-color: #22b3b8;
-  box-shadow: 2.5px 5px #0b4345;
-}
-
-.left-radio-btns{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 50%;
-  min-height: 100;
-}
-
-
-
-.right-radio-btns{
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  width: 50%;
-  min-height: 100;
-}
-
-.question input{
+.radio-container input {
   display: none;
 }
 
-.question label {
-  cursor: pointer;
-  text-align: center;
-  padding: 5px;
+
+.radio-option {
+  display: contents; 
 }
 
-.question label:hover{
+
+.question label {
+  margin: 5px; 
+  background-color: #22b3b8;
+  box-shadow: 2.5px 5px #000000a8;
+  cursor: pointer;
+  text-align: center;
+  padding: 5px 10px; 
+  width: 100%; 
+  box-sizing: border-box; 
+  border-radius: 5px;
+}
+
+
+.question label:hover {
   color: aliceblue;
 }
 
-.question input:checked + label {
-  background-color: #E66912;
-}
 
+.question input:checked + label {
+  background-color: #E66912; 
+}
 
 .answer-submit-btn {
   margin: 25px;
@@ -106,7 +96,7 @@ label{
   background-color: #E66912;
   border-radius: 50px;
   cursor: pointer;
-  box-shadow: 2.5px 5px #0b4345;
+  box-shadow: 2.5px 5px #000000a8;
   color:#0B1C48;
   width: 100px;
   align-self: center;
