@@ -5,32 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/generic.css">
   <link rel="stylesheet" href="css/specific.css">
-  <script type="module" src="scripts/initialize.js"></script>
-  <title>Trivia Master</title>
+  <link rel="stylesheet" href="css/cards.css">
+  <link rel="stylesheet" href="css/quiz.css">
+  <script type="module" src="scripts/initialize.js" defer></script>
+  <title>Quiz Master</title>
 </head>
 <body>
   <div id="header">
     <div id="left-header">
+      <a href="#">Home</a>
+      
     </div>
-
+    
     <div id="middle-header">
-      <h1>Trivia Master</h1>
+      <h1>Quiz Master</h1>
     </div>
-
+    
     <div id="right-header">
-
+      <a href="/html/profile.html">Profile</a><br>
+      <a href="/html/createQuiz.html">Create/Edit Quiz</a>
     </div>
   </div>
   
   <div id="card-container">
-    <div class="trivia-cards js-trivia-cards">
-      <h3 class="trivia-subject">subject</h3>
-      <p class="trivia-description">Description</p>
-      <button class="easy-btn">Easy</button>
-      <button class="medium-btn">Medium</button>
-      <button class="hard-btn">Hard</button>
-    </div>
   </div>
+    <h2 style="text-align: center; background-color: #E66912; position: sticky; top: 75px; padding: 10px; box-shadow: 0px 10px #000000a8;">My Quizzes</h2>
+  <div id="my-card-container"></div>
+
+  <div id="mainContainer">
+    <div class="quizContainer">
+      <div class = "questionContainer"></div>
+      
+      <div class="listContainer">
+        
+      </div>
+			
+    </div>
+	</div>
   
 </body>
 </html>

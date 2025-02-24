@@ -1,0 +1,133 @@
+#mainContainer{
+  z-index: 1;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.656);
+  
+}
+
+.close{
+  align-self: flex-end;
+}
+
+.quizContainer{
+  display: flex;
+  padding: 30px;
+  flex-direction: column;
+  align-items: center;
+  background-color: #188488;
+  border-radius: 25px;
+  max-width: 50vw;
+  max-height: 80vh;
+}
+
+.question{
+  display: flex;
+  flex-direction: column ;
+  align-items: center;
+  justify-items: center;
+  flex-wrap: wrap;
+  max-width: 80;
+}
+
+.question h3{
+  text-align: center;
+}
+.question form{
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+
+.radio-container {
+  width: 100%;
+  display: grid;
+  justify-items: center; 
+  align-items: center; 
+  text-align: center; 
+  grid-template-columns: 50% 50%; 
+  gap: 10px; 
+}
+
+.radio-container input {
+  display: none;
+}
+
+
+.radio-option {
+  display: contents; 
+}
+
+
+.question label {
+  margin: 5px; 
+  background-color: #22b3b8;
+  box-shadow: 2.5px 5px #000000a8;
+  cursor: pointer;
+  text-align: center;
+  padding: 5px 10px; 
+  width: 100%; 
+  box-sizing: border-box; 
+  border-radius: 5px;
+}
+
+
+.question label:hover {
+  color: aliceblue;
+}
+
+
+.question input:checked + label {
+  background-color: #E66912; 
+}
+
+.answer-submit-btn {
+  margin: 25px;
+  padding: 10px 20px;
+  background-color: #E66912;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 2.5px 5px #000000a8;
+  color:#0B1C48;
+  width: 100px;
+  align-self: center;
+}
+
+.answer-submit-btn:hover {
+  scale: 110%;
+  color: aliceblue;
+}
+
+.feedback{
+  align-self: center;
+}
+.listContainer{
+  display: flex;
+}
+
+.qtList{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.qtList li{
+  margin: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+

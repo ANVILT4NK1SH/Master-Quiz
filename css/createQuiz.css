@@ -1,0 +1,28 @@
+.quiz-form { 
+  margin-bottom: 20px; 
+}
+
+.quiz-list { 
+  border: 1px solid #ccc; 
+  padding: 10px; 
+}
+
+.subject-section { 
+  margin: 10px 0; 
+}
+
+.question-item { 
+  margin: 5px 0; 
+}
+    
+.edit-form { 
+  display: none; 
+  margin-top: 5px; 
+  padding: 10px; 
+  background: #f9f9f9; 
+}
+
+.delete-subject-btn, .delete-difficulty-btn, .delete-btn { 
+  margin-left: 10px;
+  color: red;
+}
