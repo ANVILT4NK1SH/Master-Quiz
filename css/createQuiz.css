@@ -1,14 +1,55 @@
 .quiz-form { 
-  margin-bottom: 20px; 
+  margin: 10px;
+  padding: 10px; 
+  background-color: #188488;
+  box-shadow: 5px 10px rgba(0, 0, 0, 0.221);
+  position: sticky;
+  top: 100px;
 }
 
 .quiz-list { 
-  border: 1px solid #ccc; 
-  padding: 10px; 
+  border: 1px solid #000000; 
+  padding: 10px;
+  width: 100;
+  display: flex;
+  flex-flow: wrap;
+  margin: 10px;
 }
 
+.quiz-list h2{
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+  background-color: #E66912;
+  margin: 0px;
+}
+
+#quizList {
+  width: 100;
+  display: flex;
+  flex-wrap: wrap;  
+}
 .subject-section { 
   margin: 10px 0; 
+  border: 3px solid black;
+  border-radius: 25px;
+  background-color: #188488;
+  padding: 10px;
+  box-shadow: 5px 10px rgba(0, 0, 0, 0.363);
+  color: #E66912;
+  margin: 5px 10px;
+}
+
+.subject-section button{
+  box-shadow: 2.5px 5px rgba(0, 0, 0, 0.234);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.subject-section button:hover{
+  scale: 1.1;
 }
 
 .question-item { 
@@ -17,12 +58,15 @@
     
 .edit-form { 
   display: none; 
+  padding: 10px;
   margin-top: 5px; 
   padding: 10px; 
-  background: #f9f9f9; 
+  background: #E66912; 
+  border-radius: 25px;
 }
 
 .delete-subject-btn, .delete-difficulty-btn, .delete-btn { 
   margin-left: 10px;
   color: red;
 }
+
